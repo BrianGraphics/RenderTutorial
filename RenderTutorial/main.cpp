@@ -17,11 +17,30 @@ int main(int argc, char** argv) {
     //else
     //    image.set(defaultAxis, defaultAxis, red);
 
+    // define two points
     Point A(10.0f, 10.0f);
     Point B(90.0f, 90.0f);
-    TGADrawLine(A, B, red, image);
-        
-    image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
+
+    // draw lines between two points
+    //TGADrawLine(A, B, red, image);
+    //TGADrawLine(B, A, white, image);
+
+    A.x = 13; A.y = 20;
+    B.x = 80; B.y = 40;
+    TGADrawLine2(A, B, white, image);
+
+    A.x = 20; A.y = 13;
+    B.x = 40; B.y = 80; 
+    TGADrawLine2(A, B, red,   image);
+
+    A.x = 80; A.y = 40;
+    B.x = 13; B.y = 20;
+    TGADrawLine2(A, B, red,   image);
+
+    // set origin at the left bottom
+    image.flip_vertically();
+
+    // write to *.tga file
     image.write_tga_file("output.tga");
     return 0;
 }
