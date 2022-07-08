@@ -31,6 +31,8 @@ void TGADrawLine3(Point A, Point B, TGAColor color, TGAImage& image)
         std::swap(A.x, B.x);
         std::swap(A.y, B.y);
     }
+
+    
     for (int x = A.x; x <= B.x; x++) {
         float t = (x - A.x) / (float)(B.x - A.x);
         int y = A.y * (1. - t) + B.y * t;
